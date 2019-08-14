@@ -24,4 +24,15 @@
 // All that matters is that your final data is written to an SQLite database
 // called "data.sqlite" in the current working directory which has at least a table
 // called "data".
+
+require 'scraperwiki.php';
+require 'scraperwiki/simple_html_dom.php';
+
+$html = scraperwiki::scrape("https://deepl.com/en/translator#es/en/apoyala todo lo que");
+
+$dom = new simple_html_dom();
+$dom->load($html);
+print_r($dom->find("#dl_translator > div.lmt__sides_container > div.lmt__side_container.lmt__side_container--target > div.lmt__textarea_container > div.lmt__inner_textarea_container > div > span:nth-child(1)"));
 ?>
+
+
